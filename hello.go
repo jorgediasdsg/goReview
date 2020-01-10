@@ -1,3 +1,10 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
 //Exercise Of Book - Intro Go Language - Caleb Doxsey - Novatec 2016
 
 //Reader Jorge Dias - jorgediascpd@gmail.com - Ok
@@ -487,20 +494,77 @@
 // 	}
 // }
 
-package main
+/////////////////////////////////////////////////////////////////////
+//// Chapter 7 - Estruturas e Interfaces                         ////
+/////////////////////////////////////////////////////////////////////
+// package main
 
-import (
-	"fmt"
-	"math"
-)
+// import (
+// 	"fmt"
+// 	"math"
+// )
 
+// func distance(x1, y1, x2, y2 float64) float64 {
+// 	a := x2 - x1
+// 	b := y2 - y1
+// 	return math.Sqrt(a*a + b*b)
+// }
+// func rectangleArea(x1, y1, x2, y2 float64) float64 {
+// 	l := distance(x1, y1, x2, y2)
+// 	w := distance(x1, y1, x2, y2)
+// 	return l * w
+// }
+// func circleArea(x, y, r float64) float64 {
+// 	return math.Pi * r * r
+// }
+// func main() {
+// 	var rx1, ry1 float64 = 0, 0
+// 	var rx2, ry2 float64 = 10, 10
+// 	var cx, cy, cr float64 = 0, 0, 5
+
+// 	fmt.Println("Chapter7 - Struct and interface") // How to create structure.
+// 	fmt.Println("Rectangle Área:", rectangleArea(rx1, ry1, rx2, ry2))
+// 	fmt.Println("Circle Área:", circleArea(cx, cy, cr))
+// }
+
+// O programa acima está calculando a área de um retangulo e circulo, dessa forma é mais complexo de ver e dar manutenção,
+// Ai que entra as estruturas e interfaces, para facilitar essa abordagem.
+
+// // Representação
+// type Circle struct {
+// 	x, y, r float64
+// }
+// // Inicialização
+// //var c Circle
+// //ou
+// //c := new(Circle)
+
+// // A forma mais usada não é usando new, mas assim...
+// //c := Circle{x:0, y:0, r: 5}
+// // Se souber a ordem dos campos não é preciso especificar os nomes...
+// c := Circle{0,0,5}
+// // Se precisar de um ponteiro use &
+// //c := &Circle{0,0,5}
+
+// // Para acessarmos os campos da estrutura usamos o .
+// c.x = 10
+// c.y = 5
+
+type Rectangle struct {
+	x1, y1, x2, y2 float64
+}
+
+func (r *Rectangle) area() float64 {
+	l := distance(r.x1, r.y1, r.x1, r.y2)
+	w := distance(r.x1, r.y1, r.x2, r.y1)
+	return l * w
+}
 func distance(x1, y1, x2, y2 float64) float64 {
 	a := x2 - x1
 	b := y2 - y1
 	return math.Sqrt(a*a + b*b)
 }
-
 func main() {
-	fmt.Println("Chapter7 - Struct and interface") // How to create structure.
-	fmt.Println(distance(100, 200, 300, 400))
+	r := Rectangle{0, 0, 10, 10}
+	fmt.Println(r.area())
 }
