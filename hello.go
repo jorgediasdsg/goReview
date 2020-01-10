@@ -1,11 +1,11 @@
 //Exercise Of Book - Intro Go Language - Caleb Doxsey - Novatec 2016
 
-//Reader Jorge Dias - jorgediascpd@gmail.com
+//Reader Jorge Dias - jorgediascpd@gmail.com - Ok
 
 package main
 
 import "fmt"
-//////
+
 //import "os"
 
 //Like a comment
