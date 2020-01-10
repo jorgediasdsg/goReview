@@ -5,7 +5,7 @@
 package main
 
 import "fmt"
-
+////
 //import "os"
 
 //Like a comment
@@ -490,4 +490,3 @@ import "fmt"
 // }
 
 fmt.Println("Chapter7 - Struct and interface")
-
