@@ -1,9 +1,4 @@
-package main
-
-import (
-	"fmt"
-	"math"
-)
+//package main
 
 //Exercise Of Book - Intro Go Language - Caleb Doxsey - Novatec 2016
 
@@ -550,21 +545,88 @@ import (
 // c.x = 10
 // c.y = 5
 
-type Rectangle struct {
-	x1, y1, x2, y2 float64
-}
+/////////////////////////////////////////////////////////////////////
+/// Rectangle sample struct
+// type Rectangle struct {
+// 	x1, y1, x2, y2 float64
+// }
 
-func (r *Rectangle) area() float64 {
-	l := distance(r.x1, r.y1, r.x1, r.y2)
-	w := distance(r.x1, r.y1, r.x2, r.y1)
-	return l * w
-}
-func distance(x1, y1, x2, y2 float64) float64 {
-	a := x2 - x1
-	b := y2 - y1
-	return math.Sqrt(a*a + b*b)
-}
+// func (r *Rectangle) area() float64 {
+// 	l := distance(r.x1, r.y1, r.x1, r.y2)
+// 	w := distance(r.x1, r.y1, r.x2, r.y1)
+// 	return l * w
+// }
+// func distance(x1, y1, x2, y2 float64) float64 {
+// 	a := x2 - x1
+// 	b := y2 - y1
+// 	return math.Sqrt(a*a + b*b)
+// }
+// func main() {
+// 	r := Rectangle{0, 0, 10, 10}
+// 	fmt.Println(r.area())
+// }
+////////////////////////////////////////////////////////////////////
+///  Tipos incluídos
+// type Person struct {
+// 	Name string
+// }
+
+// func (p *Person) Talk() {
+// 	fmt.Println("Hi, my name is", p.Name)
+// }
+// func main() {
+// 	p.Talk()
+// }
+
+////////// Não funcionou!
+
+/////////////////////////////////////////////////////////////////////
+//// Chapter 8 - Pacotes                                         ////
+/////////////////////////////////////////////////////////////////////
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
 func main() {
-	r := Rectangle{0, 0, 10, 10}
-	fmt.Println(r.area())
+	fmt.Println(strings.Contains("test", "es"))
+	//Procurar string menor em outra maior strings.Contains
+	//Contains(s, substring string) bool
+	//=>True
+	fmt.Println(strings.Count("teste", "t"))
+	//Contar quantas vezes aparece a string menor na maior
+	//Count(s, sub string) int
+	// => 2
+	fmt.Println(strings.HasPrefix("Teste", "Te"))
+	//Verificar se inicia com a substring
+	//HasFrefix(s, sub string) bool
+	// => true
+	fmt.Println(strings.HasSuffix("Test", "est"))
+	//Verificar se finaliza com substring
+	//HasSuffix(s, subs string) bool
+	// => true
+	fmt.Println(strings.Index("Teste", "s"))
+	//Retornar a posição da string, -1 caso não exista
+	//Index(s, subs string) int
+	// => 2
+	fmt.Println(strings.Join([]string{"a", "b"}, "-"))
+	//Fazer a união de strings
+	// => a-b
+	fmt.Println(strings.Repeat("/", 60))
+	//Fazer a repetição de uma string
+	// => //////////////////////////////////////
+	fmt.Println(strings.Replace("aaaa", "a", "b", 2))
+	//Use para sustituir string, no contador use -1 para substituir todas.
+	// => bbaa
+	fmt.Println(strings.Split("a; b; c; d", ";"))
+	//Use para separar string usando marcadores.
+	//=> []string{"a","b","c","d"}
+	fmt.Println(strings.ToLower("Test To Lower"))
+	//Use para substituir strings to lower
+	// "test to lower"
+	fmt.Println(strings.ToUpper("teste de to upper"))
+	// Use para converter para uppercase
+	// => TESTE TO UPPER
 }
